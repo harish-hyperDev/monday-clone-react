@@ -4,7 +4,8 @@ const StatusDisplay = ({status}) => {
   console.log(status)
   const getColor = (status) => {
     let color;
-    switch (status) {
+    // Making text to lowercase for comparsion 
+    switch (status.toLowerCase()) {
       case 'done':
         color = 'rgb(186,255,201)'
         break

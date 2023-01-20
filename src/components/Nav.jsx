@@ -9,9 +9,9 @@ const Nav = () => {
       <div className='p-3 w-[40px] flex flex-col'>
         <img src={logo} />
       </div>
-      <div>
-        <div className='text-white' onClick={() => navigate('/ticket')}>+</div>
-        <div className='text-white' onClick={() => navigate('/')}>-</div>
+      <div className='[&>div]:my-[5px] [&>div]:cursor-pointer'>
+        <div className='text-white font-bold' onClick={() => navigate('/ticket')}>＋</div>
+        <div className='text-white font-thin' onClick={() => navigate('/')}>❮❮</div>
       </div>
     </nav>
   )
