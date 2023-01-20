@@ -5,15 +5,15 @@ import PriorityDisplay from './PriorityDisplay'
 import ProgressDisplay from './ProgressDisplay'
 import DeleteBlock from './DeleteBlock'
 import { Link } from 'react-router-dom'
-const TicketCard = ({ color, ticket }) => {
-  return (
+const TicketCard = ({ color, ticket }) => {  
+  return (    
     <div className='flex w-full'>      
-      <Link className='bg-[rgb(221,221,221)] m-2 p-8 w-full'>
-        <div className='ticket-color'></div>
+      <Link className='flex w-full [&>*]:bg-[rgb(221,221,221)] [&>*]:m-[2px] [&>*]:p-6 [&>*]:flex [&>*]:w-full [&>*]:items-center [&>*]:text-center'>
+        <div className='ticket-color'>Red</div>
         <h3>{ticket.title}</h3>
-        <AvatarDisplay />
-        <StatusDisplay />
-        <PriorityDisplay />
+        <AvatarDisplay ticket={ticket} />
+        <StatusDisplay status={ticket.status} />
+        <PriorityDisplay priority={ticket.priority} />
         <ProgressDisplay />        
       </Link>
       <DeleteBlock />
