@@ -1,24 +1,28 @@
 import { useState } from 'react'
-import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
 
 import Dashboard from './pages/Dashboard'
 import TicketPage from './pages/TicketPage'
 import Nav from './components/Nav'
+import CategoriesContext from './context'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [categories, setCategories] = useState(null)
+  const value = { categories, setCategories }
 
   return (
     <div className="App flex">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Dashboard />}/>
-          <Route path='/ticket' element={<TicketPage />}/>
-          <Route path='/ticket/:id' element={<TicketPage editMode={true} />}/>
-        </Routes>
-      </BrowserRouter>
+      <CategoriesContext.Provider value={value}>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Dashboard />}/>
+            <Route path='/ticket' element={<TicketPage />}/>
+            <Route path='/ticket/:id' element={<TicketPage editMode={true} />}/>
+          </Routes>
+        </BrowserRouter>
+      </CategoriesContext.Provider>
     </div>
   )
 }
